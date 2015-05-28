@@ -99,7 +99,7 @@
           //segment: '$browser'                     // a segmentation expression or event property.
         };
 
-        var runQuery = function() {
+        var runQuery = function(indicator) {
           var dateRange = dateSelect.MPDatepicker('value'),
               interval = intervalPicker.MPSelect('value'),
               unit = unitPicker.MPSelect('value');
@@ -119,7 +119,7 @@
           params['length'] = interval;
           params['length_unit'] = unit;
           if(propName != null && eventName1 != null) { params['on'] = 'properties["' + propName + '"]'; }
-          else { try { params['on'].delete; } catch(err) { console.log("No on param"); } }
+          if(indicator) { try { params['on'].delete; } catch(err) { console.log("No on param"); } }
           
           if(eventsNum == 2){
             if(eventName1 != null && eventName2 != null && interval != null && unit != null) {
@@ -198,20 +198,20 @@
           eventTable.MPTable('setData', finalResults);
         };
         
-        intervalPicker.on('change', runQuery);
-        unitPicker.on('change', runQuery);
-        dateSelect.on('change', runQuery);
+        intervalPicker.on('change', runQuery(false));
+        unitPicker.on('change', runQuery(false));
+        dateSelect.on('change', runQuery(false));
         eventPicker1.on('change', function(e, eventName) {
           propSelect.MPPropertySelect('setEvent', eventName);
           $("#by").show();
           $("#propSelect").show();
-          runQuery();
+          runQuery(true);
         });
-        eventPicker2.on('change', runQuery);
-        eventPicker3.on('change', runQuery);
-        eventPicker4.on('change', runQuery);
-        eventPicker5.on('change', runQuery);
-        propSelect.on('change', runQuery);
+        eventPicker2.on('change', runQuery(false));
+        eventPicker3.on('change', runQuery(false));
+        eventPicker4.on('change', runQuery(false));
+        eventPicker5.on('change', runQuery(false));
+        propSelect.on('change', runQuery(false));
         eventsPicker.on('change', function(e, value) {
           if(value == 2) { 
             $("#eventSelect3").hide();
@@ -245,7 +245,7 @@
             $("#four").show();
             $("#five").show();
           }
-          runQuery();
+          runQuery(false);
       });
     });  
     </script>
