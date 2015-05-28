@@ -205,8 +205,6 @@
         eventPicker1.on('change', function(e, eventName) {
           if(params['on']) { params['on'].delete; }
           propSelect.MPPropertySelect('setEvent', eventName);
-          $("#by").show();
-          $("#propSelect").show();
           runQuery();
         });
         eventPicker2.on('change', runQuery);
