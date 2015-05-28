@@ -121,7 +121,7 @@
           if(propName != null && Object.keys(propName).length < 1) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
           console.log(params['on']);
-          console.log(propName);
+          console.log(Object.keys(propName).length);
           
           if(eventsNum == 2){
             if(eventName1 != null && eventName2 != null && interval != null && unit != null) {
