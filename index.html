@@ -118,6 +118,7 @@
           params['to'] = dateRange.to.toISOString().substring(0, 10);
           params['length'] = interval;
           params['length_unit'] = unit;
+          console.log(propName);
           if(propName != null && eventName1 != null) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
           console.log(params['on']);
@@ -203,7 +204,7 @@
         unitPicker.on('change', runQuery);
         dateSelect.on('change', runQuery);
         eventPicker1.on('change', function(e, eventName) {
-          if(params.hasOwnProperty('on')) { params['on'].delete; }
+          if(params.hasOwnProperty('on') == true) { params['on'].delete; }
           console.log(params['on']);
           propSelect.MPPropertySelect('setEvent', eventName);
           $("#by").show();
