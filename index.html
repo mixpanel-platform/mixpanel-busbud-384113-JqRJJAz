@@ -121,6 +121,7 @@
           if(propName != null && jQuery.isEmptyObject(propName) == false) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
           console.log(params['on']);
+          console.log(propName);
           
           if(eventsNum == 2){
             if(eventName1 != null && eventName2 != null && interval != null && unit != null) {
