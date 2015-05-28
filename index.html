@@ -126,7 +126,7 @@
             if(eventName1 != null && eventName2 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, params).done(function(results) {
                 console.log(results);
-                if(propName != null) { processResultsProps(results); }
+                if(params['on']) { processResultsProps(results); }
                 else { processResultsNoProps(results); }
               });
             }
@@ -136,7 +136,7 @@
             if(eventName1 != null && eventName2 != null && eventName3 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, params).done(function(results) {
                 console.log(results);
-                if(propName != null) { processResultsProps(results); }
+                if(params['on']) { processResultsProps(results); }
                 else { processResultsNoProps(results); }
               });
             }
@@ -146,7 +146,7 @@
             if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, eventName4, params).done(function(results) {
                 console.log(results);
-                if(propName != null) { processResultsProps(results); }
+                if(params['on']) { processResultsProps(results); }
                 else { processResultsNoProps(results); }
               });
             }
@@ -156,7 +156,7 @@
             if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && eventName5 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, eventName4, eventName5, params).done(function(results) {
                 console.log(results);
-                if(propName != null) { processResultsProps(results); }
+                if(params['on']) { processResultsProps(results); }
                 else { processResultsNoProps(results); }
               });
             }
