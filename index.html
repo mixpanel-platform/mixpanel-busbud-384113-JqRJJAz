@@ -110,39 +110,47 @@
           params['length_unit'] = unit;
           
           if(eventsNum == 2){
-            if(eventName1 != null && eventName2 != null && interval != null && unit != null)
+            if(eventName1 != null && eventName2 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, params).done(function(results) {
                 console.log(results);
-                processResults(results);
+                if(propName != null) { processResultsProps(results); }
+                else { processResultsNoProps(results); }
               });
+            }
           }
           
           if(eventsNum == 3){
-            if(eventName1 != null && eventName2 != null && eventName3 != null && interval != null && unit != null)
+            if(eventName1 != null && eventName2 != null && eventName3 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, params).done(function(results) {
                 console.log(results);
-                processResults(results);
+                if(propName != null) { processResultsProps(results); }
+                else { processResultsNoProps(results); }
               });
+            }
           }
           
           if(eventsNum == 4){
-            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && interval != null && unit != null)
+            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, eventName4, params).done(function(results) {
                 console.log(results);
-                processResults(results);
+                if(propName != null) { processResultsProps(results); }
+                else { processResultsNoProps(results); }
               });
+            }
           }
           
           else{
-            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && eventName5 != null && interval != null && unit != null)
+            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && eventName5 != null && interval != null && unit != null) {
               MP.api.funnel(eventName1, eventName2, eventName3, eventName4, eventName5, params).done(function(results) {
                 console.log(results);
-                processResults(results);
+                if(propName != null) { processResultsProps(results); }
+                else { processResultsNoProps(results); }
               });
+            }
           }
         };
         
-        var processResults = function(results) {
+        var processResultsProps = function(results) {
           var newResults = {};
           var props = Object.keys(results);
           var finalResults = {};
@@ -160,6 +168,21 @@
           console.log(finalResults);
           eventGraph.MPChart('setData', finalResults);
           //eventTable.MPTable('setData', finalResults);
+        };
+        
+        var processResultsNoProps = function(results) {
+          var newResults = {};
+          var dates = Object.keys(results[0]);
+          for(j=0; j<dates.length; j++) {
+            newResults[dates[j]] = (results[eventsNum-1][dates[j]]['count'] / results[0][dates[j]]['count']) * 100;
+            if(isNaN(newResults[dates[j]])){
+              newResults[dates[j]] = 0;
+            }
+          }
+          finalResults = {};
+          finalResults['Conversions'] = newResults;
+          console.log(newResults);
+          eventGraph.MPChart('setData', finalResults);
         };
         
         intervalPicker.on('change', runQuery);
