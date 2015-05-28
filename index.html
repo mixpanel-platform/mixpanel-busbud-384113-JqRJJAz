@@ -121,6 +121,7 @@
           console.log(propName);
           if(propName != null && eventName1 != null) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
+          console.log(if(params['on']));
           console.log(params['on']);
           
           if(eventsNum == 2){
