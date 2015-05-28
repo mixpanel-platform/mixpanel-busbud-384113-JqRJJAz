@@ -26,6 +26,7 @@
       <div style="clear: both;"></div>
       <div id="graph"></div>
     </div>
+    <div id="table"></div>
     <script>
       MP.api.ready(function() {
         var dateSelect  = $('#dateSelect').MPDatepicker();
@@ -170,7 +171,7 @@
           }
           console.log(finalResults);
           eventGraph.MPChart('setData', finalResults);
-          //eventTable.MPTable('setData', finalResults);
+          eventTable.MPTable('setData', finalResults);
         };
         
         var processResultsNoProps = function(results) {
@@ -186,6 +187,7 @@
           finalResults['Conversions'] = newResults;
           console.log(newResults);
           eventGraph.MPChart('setData', finalResults);
+          eventTable.MPTable('setData', finalResults);
         };
         
         intervalPicker.on('change', runQuery);
