@@ -203,6 +203,7 @@
         unitPicker.on('change', runQuery);
         dateSelect.on('change', runQuery);
         eventPicker1.on('change', function(e, eventName) {
+          if(params['on']) { params['on'].delete; }
           propSelect.MPPropertySelect('setEvent', eventName);
           $("#by").show();
           $("#propSelect").show();
