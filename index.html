@@ -118,7 +118,7 @@
           params['to'] = dateRange.to.toISOString().substring(0, 10);
           params['length'] = interval;
           params['length_unit'] = unit;
-          if(propName != null) { params['on'] = 'properties["' + propName + '"]'; }
+          if(propName != null && typeof Object.keys(propName) !== undefined) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
           console.log(params['on']);
           
@@ -205,6 +205,8 @@
         eventPicker1.on('change', function(e, eventName) {
           if(params['on']) { params['on'].delete; }
           propSelect.MPPropertySelect('setEvent', eventName);
+          $("#by").show();
+          $("#propSelect").show();
           runQuery();
         });
         eventPicker2.on('change', runQuery);
