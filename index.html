@@ -109,11 +109,36 @@
           params['length'] = interval;
           params['length_unit'] = unit;
           
-          if(interval != null && unit != null){
-            MP.api.funnel("selected_departure", "checkout_pageview", "started_checkout", "thanks_checkout_pageview", params).done(function(results) {
-              console.log(results);
-              processResults(results);
-            });
+          if(eventsNum == 2){
+            if(eventName1 != null && eventName2 != null && interval != null && unit != null)
+              MP.api.funnel(eventName1, eventName2, params).done(function(results) {
+                console.log(results);
+                processResults(results);
+              });
+          }
+          
+          if(eventsNum == 3){
+            if(eventName1 != null && eventName2 != null && eventName3 != null && interval != null && unit != null)
+              MP.api.funnel(eventName1, eventName2, eventName3, params).done(function(results) {
+                console.log(results);
+                processResults(results);
+              });
+          }
+          
+          if(eventsNum == 4){
+            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && interval != null && unit != null)
+              MP.api.funnel(eventName1, eventName2, eventName3, eventName4, params).done(function(results) {
+                console.log(results);
+                processResults(results);
+              });
+          }
+          
+          else{
+            if(eventName1 != null && eventName2 != null && eventName3 != null && eventName4 != null && eventName5 != null && interval != null && unit != null)
+              MP.api.funnel(eventName1, eventName2, eventName3, eventName4, eventName5, params).done(function(results) {
+                console.log(results);
+                processResults(results);
+              });
           }
         };
         
