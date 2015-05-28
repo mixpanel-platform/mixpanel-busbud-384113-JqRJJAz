@@ -8,17 +8,22 @@
   <body class="mixpanel-platform-body">
     <div class="mixpanel-platform-section">
       <div id="dateSelect" style="float: right;"></div>
+      <div id="one" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">1.</div>
       <div id="eventSelect1" style="float: left;"></div>
       <div style="clear: both;"></div>
       <div id="intervalSelect" style="float: right;"></div>
+      <div id="two" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">2.</div>
       <div id="eventSelect2" style="float: left;"></div>
       <div style="clear: both;"></div>
       <div id="unitSelect" style="float: right;"></div>
+      <div id="three" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">3.</div>
       <div id="eventSelect3" style="float: left; display: none;"></div>
       <div style="clear: both;"></div>
       <div id="eventSelect" style="float: right;"></div>
+      <div id="four" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">4.</div>
       <div id="eventSelect4" style="float: left; display: none;"></div>
       <div style="clear: both;"></div>
+      <div id="five" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">5.</div>
       <div id="eventSelect5" style="float: left; display: none;"></div>
       <div style="clear: both;"></div>
       <div id="by" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">by</div>
@@ -213,21 +218,33 @@
             $("#eventSelect3").hide();
             $("#eventSelect4").hide();
             $("#eventSelect5").hide();
+            $("#three").hide();
+            $("#four").hide();
+            $("#five").hide();
           }
           else if(value == 3) { 
             $("#eventSelect3").show();
             $("#eventSelect4").hide();
             $("#eventSelect5").hide();
+            $("#three").show();
+            $("#four").hide();
+            $("#five").hide();
           }
           else if(value == 4) {
             $("#eventSelect3").show();
             $("#eventSelect4").show();
             $("#eventSelect5").hide();
+            $("#three").show();
+            $("#four").show();
+            $("#five").hide();
           }
           else {
             $("#eventSelect3").show();
             $("#eventSelect4").show();
             $("#eventSelect5").show();
+            $("#three").show();
+            $("#four").show();
+            $("#five").show();
           }
           runQuery();
       });
