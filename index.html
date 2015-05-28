@@ -120,8 +120,8 @@
           params['length_unit'] = unit;
           console.log(propName);
           if(propName != null && eventName1 != null) { params['on'] = 'properties["' + propName + '"]'; }
-          else { if(params['on']) { params['on'].delete; } }
-          console.log(if(params['on']));
+          else { try { params['on'].delete; } catch { console.log("No on param"); } }
+          console.log(params['on']);
           console.log(params['on']);
           
           if(eventsNum == 2){
