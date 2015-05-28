@@ -118,7 +118,7 @@
           params['to'] = dateRange.to.toISOString().substring(0, 10);
           params['length'] = interval;
           params['length_unit'] = unit;
-          if(propName != null && Object.keys(propName).length > 0) { params['on'] = 'properties["' + propName + '"]'; }
+          if(propName != null && Object.keys(propName).length < 1) { params['on'] = 'properties["' + propName + '"]'; }
           else { if(params['on']) { params['on'].delete; } }
           console.log(params['on']);
           console.log(propName);
